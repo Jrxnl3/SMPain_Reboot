@@ -1,0 +1,12 @@
+name: SMP_Reboot
+version: '${project.version}'
+main: de.jinx.smp_reborn.SMP_Reboot
+api-version: 1.19
+
+commands:
+  broadcast:
+  rename:
+  testString:
+  startsmp:
+  luckwheel:
+  setspawn:
