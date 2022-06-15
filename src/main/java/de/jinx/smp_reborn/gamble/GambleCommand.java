@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class GambleCommand implements CommandExecutor {
 
+    //TODO: Gets overriden when some else uses it at the same time :(
     int id;
 
     @Override
