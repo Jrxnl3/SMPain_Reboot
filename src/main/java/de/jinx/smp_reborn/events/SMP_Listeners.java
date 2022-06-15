@@ -15,15 +15,6 @@ public class SMP_Listeners implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e){
         e.setJoinMessage(SMP_Reboot.PREFIX+e.getPlayer().getName()+" has joined us. :)");
         ScoreboardHandler.createScoreboard(e.getPlayer());
-
-        if(SMP_Reboot.getPlugin().getCfgManager().getCfg().getLocation("loc.spawn") != null)
-            e.getPlayer().teleport(SMP_Reboot.getPlugin().getCfg().getLocation("loc.spawn"));
-    }
-
-    @EventHandler
-    public void onPlayerSpawn(PlayerRespawnEvent e){
-        if(SMP_Reboot.getPlugin().getCfgManager().getCfg().getLocation("loc.spawn") != null)
-            e.setRespawnLocation(SMP_Reboot.getPlugin().getCfg().getLocation("loc.spawn"));
     }
 
     @EventHandler
@@ -36,8 +27,8 @@ public class SMP_Listeners implements Listener {
         Player p = e.getEntity();
 
         System.out.println("Death Location X:"+p.getLocation().getBlockX() + " Y: "+p.getLocation().getBlockY()+ " Z: "+p.getLocation().getBlockZ());
+        e.setDeathMessage(SMP_Reboot.PREFIX + "§6" + p.getName() + " made a terrible choice. :(\n§6F");
 
-        e.setDeathMessage(SMP_Reboot.PREFIX+"§6"+p.getName() + " made a terrible choice. :(\n§6F");
         p.sendMessage("§cYou died at X:"+p.getLocation().getBlockX() + " Y: "+p.getLocation().getBlockY()+ " Z: "+p.getLocation().getBlockZ());
     }
 }

@@ -39,10 +39,6 @@ public class AdminCommands implements CommandExecutor {
             } else if (label.equalsIgnoreCase("testString")) {
                 String text = formateArgs(args);
                 player.sendMessage(text);
-            } else if(label.equalsIgnoreCase("setspawn")){
-                SMP_Reboot.getPlugin().getCfgManager().getCfg().set("loc.spawn",player.getLocation());
-                SMP_Reboot.getPlugin().getCfgManager().save();
-                player.sendMessage(SMP_Reboot.PREFIX + "§aSuccessfully set Spawn!");
             }
         }
         return false;

@@ -10,3 +10,4 @@ commands:
   startsmp:
   luckwheel:
   setspawn:
+  spawnActive:

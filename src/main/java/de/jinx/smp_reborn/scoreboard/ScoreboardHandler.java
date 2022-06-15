@@ -15,11 +15,11 @@ public class ScoreboardHandler {
         Objective obj = scoreboard.registerNewObjective("smp_scoreboard", "dummy", "§6<< §r"+SMP_Reboot.PREFIX);
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
         obj.getScore("").setScore(8);
-        obj.getScore("§6§lVisit").setScore(7);
+        obj.getScore("§4§lVisit").setScore(7);
         obj.getScore("§asmpain.de").setScore(6);
         obj.getScore(" ").setScore(5);
         obj.getScore("§6§lObjective").setScore(4);
-        obj.getScore("§aHave Fun :)").setScore(3);
+        obj.getScore("§aGather §4§lEvil Spirits").setScore(3);
         obj.getScore("  ").setScore(2);
         obj.getScore("§d§lDiscord:").setScore(1);
         obj.getScore("§adiscord.gg/wUUKbk7eaz").setScore(0);
