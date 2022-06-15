@@ -1,6 +1,7 @@
 package de.jinx.smp_reborn.commands;
 
 import de.jinx.smp_reborn.SMP_Reboot;
+import de.jinx.smp_reborn.gamble.Luckwheel;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
