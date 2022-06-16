@@ -11,3 +11,4 @@ commands:
   luckwheel:
   setspawn:
   spawnActive:
+  createWizard:

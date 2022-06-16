@@ -11,4 +11,5 @@ public class Souls {
     public static ItemStack waterSoul = new ItemBuilder(Material.INK_SAC).setAmount(1).setLore("The Soul Drop of an Aquatic Creature.").setName("§bWatery §6Soul").addGlow().build();
     public static ItemStack fireSoul = new ItemBuilder(Material.BLAZE_ROD).setAmount(1).setLore("The Soul Drop of a Fire Creature. §c§oIt still burns....").setName("§cFiery §6Soul").addGlow().build();
     public static ItemStack evilSpirit = new ItemBuilder(Material.COD_BUCKET).setAmount(1).setLore("The Spirit of an §4§lAncient Evil Demon§r trapped inside a ... §oBucket?").setName("§4Evil §6Spirit").addGlow().build();
+    public static ItemStack evilSpiritBuy = new ItemBuilder(Material.COD_BUCKET).setAmount(1).setLore("Costs 2 of each Soul").setName("§4Evil §6Spirit").addGlow().build();
 }

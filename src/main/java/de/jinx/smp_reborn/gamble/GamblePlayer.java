@@ -1,8 +1,10 @@
 package de.jinx.smp_reborn.gamble;
 
+import de.jinx.smp_reborn.SMP_Reboot;
 import de.jinx.smp_reborn.util.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
@@ -13,7 +15,10 @@ import java.util.UUID;
 public class GamblePlayer {
     private UUID playerUUID;
     private ArrayList<ItemStack> shuffeldLuckItems;
+
     private int scrollCount;
+    private int maxCount;
+
     private InventoryView luckInv;
 
 
@@ -22,6 +27,7 @@ public class GamblePlayer {
         this.shuffeldLuckItems = shuffeldLuckItems;
         this.scrollCount = scrollCount;
         this.luckInv = luckInv;
+        this.maxCount = scrollCount;
     }
 
     public void setInvHeader(Material pane){
@@ -46,11 +52,20 @@ public class GamblePlayer {
         }else {
             p.getInventory().addItem(wonItem);
         }
+        p.sendMessage(SMP_Reboot.PREFIX+"§aYou won: " +wonItem.getItemMeta().getDisplayName()+"§a! :D");
+
+        p.getWorld().playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_IRON_XYLOPHONE,10,2);
     }
 
     public void halftime(){
         setInvHeader(Material.YELLOW_STAINED_GLASS_PANE);
+        Player p = Bukkit.getPlayer(playerUUID);
+
+        p.getWorld().playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,5,1);
     }
+
+
+    //GETTER & SETTER
 
     public UUID getPlayerUUID() {
         return playerUUID;
@@ -66,6 +81,10 @@ public class GamblePlayer {
 
     public InventoryView getLuckInv() {
         return luckInv;
+    }
+
+    public int getMaxCount() {
+        return maxCount;
     }
 
     public void setScrollCount(int scrollCount) {

@@ -7,6 +7,9 @@ import de.jinx.smp_reborn.events.SMP_Listeners;
 import de.jinx.smp_reborn.events.SoulsDropListeners;
 import de.jinx.smp_reborn.gamble.GambleCommand;
 import de.jinx.smp_reborn.gamble.GambleScrollCooldown;
+import de.jinx.smp_reborn.gamble.LuckwheelHandler;
+import de.jinx.smp_reborn.npcs.NPC_GUIHandler;
+import de.jinx.smp_reborn.npcs.WizardHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
@@ -31,6 +34,7 @@ public final class SMP_Reboot extends JavaPlugin {
         this.getCommand("testString").setExecutor(new AdminCommands());
         this.getCommand("setspawn").setExecutor(new AdminCommands());
         this.getCommand("spawnActive").setExecutor(new AdminCommands());
+        this.getCommand("createWizard").setExecutor(new AdminCommands());
 
         this.getCommand("startSMP").setExecutor(new StartSMPCommand());
         this.getCommand("luckwheel").setExecutor(new GambleCommand());
@@ -38,6 +42,9 @@ public final class SMP_Reboot extends JavaPlugin {
         PluginManager pl = Bukkit.getPluginManager();
         pl.registerEvents(new SMP_Listeners(), this);
         pl.registerEvents(new SoulsDropListeners(), this);
+        pl.registerEvents(new WizardHandler(), this);
+        pl.registerEvents(new NPC_GUIHandler(), this);
+        pl.registerEvents(new LuckwheelHandler(), this);
 
         GambleScrollCooldown.ScrollActive();
     }

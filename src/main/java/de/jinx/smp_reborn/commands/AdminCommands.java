@@ -2,6 +2,7 @@ package de.jinx.smp_reborn.commands;
 
 import de.jinx.smp_reborn.SMP_Reboot;
 import de.jinx.smp_reborn.gamble.Luckwheel;
+import de.jinx.smp_reborn.npcs.WizardNPC;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -40,6 +41,9 @@ public class AdminCommands implements CommandExecutor {
             } else if (label.equalsIgnoreCase("testString")) {
                 String text = formateArgs(args);
                 player.sendMessage(text);
+            }else if(label.equalsIgnoreCase("createWizard")){
+                WizardNPC.createWizardNPC(player.getLocation());
+                player.sendMessage(SMP_Reboot.PREFIX+"Created Wizard!");
             }
         }
         return false;
