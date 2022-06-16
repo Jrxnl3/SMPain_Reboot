@@ -6,6 +6,7 @@ import de.jinx.smp_reborn.config.ConfigManager;
 import de.jinx.smp_reborn.events.SMP_Listeners;
 import de.jinx.smp_reborn.events.SoulsDropListeners;
 import de.jinx.smp_reborn.gamble.GambleCommand;
+import de.jinx.smp_reborn.gamble.GambleScrollCooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
@@ -37,6 +38,8 @@ public final class SMP_Reboot extends JavaPlugin {
         PluginManager pl = Bukkit.getPluginManager();
         pl.registerEvents(new SMP_Listeners(), this);
         pl.registerEvents(new SoulsDropListeners(), this);
+
+        GambleScrollCooldown.ScrollActive();
     }
 
     @Override

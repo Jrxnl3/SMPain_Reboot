@@ -33,30 +33,25 @@ public class Luckwheel {
         return shuffeldItems;
     }
 
-    public static Inventory initLuckwheel(ArrayList<ItemStack> shuffeldItems){
-        Inventory inv = Bukkit.createInventory(null,9*3,"LuckWheel");
+    public static Inventory initLuckwheel(ArrayList<ItemStack> shuffeldItems) {
+        Inventory inv = Bukkit.createInventory(null, 9 * 3, "LuckWheel");
         for (int i = 0; i < 9; i++) {
-            inv.setItem(i,new ItemBuilder(Material.BLUE_STAINED_GLASS_PANE).setName(" ").build());
+            inv.setItem(i, new ItemBuilder(Material.BLUE_STAINED_GLASS_PANE).setName(" ").build());
         }
-
-
 
         int j = 0;
         for (int i = 9; i < 18; i++) {
-            inv.setItem(i,shuffeldItems.get(j));
+            inv.setItem(i, shuffeldItems.get(j));
             j++;
         }
 
         for (int i = 18; i < 27; i++) {
-            inv.setItem(i,new ItemBuilder(Material.BLUE_STAINED_GLASS_PANE).setName(" ").build());
+            inv.setItem(i, new ItemBuilder(Material.BLUE_STAINED_GLASS_PANE).setName(" ").build());
         }
 
-        inv.setItem(4,new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE).setName(" ").build());
-        inv.setItem(22,new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE).setName(" ").build());
+        inv.setItem(4, new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE).setName(" ").build());
+        inv.setItem(22, new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE).setName(" ").build());
 
         return inv;
     }
-
-    //TODO Roatating items as Function + cooldown for that
-    //public static
 }
