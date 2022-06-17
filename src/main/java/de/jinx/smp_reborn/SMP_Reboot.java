@@ -6,21 +6,18 @@ import de.jinx.smp_reborn.config.ConfigManager;
 import de.jinx.smp_reborn.events.SMP_Listeners;
 import de.jinx.smp_reborn.events.SoulsDropListeners;
 import de.jinx.smp_reborn.gamble.GambleCommand;
-import de.jinx.smp_reborn.gamble.GambleScrollCooldown;
 import de.jinx.smp_reborn.gamble.LuckwheelHandler;
-import de.jinx.smp_reborn.items.CreeperHit;
-import de.jinx.smp_reborn.items.Jumpo;
+import de.jinx.smp_reborn.items.Entchantments.CreeperHit;
+import de.jinx.smp_reborn.items.Entchantments.Jumpo;
+import de.jinx.smp_reborn.items.Entchantments.Timber;
 import de.jinx.smp_reborn.npcs.NPC_GUIHandler;
 import de.jinx.smp_reborn.npcs.WizardHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Creeper;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.checkerframework.checker.units.qual.A;
-import org.checkerframework.checker.units.qual.C;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -38,6 +35,7 @@ public final class SMP_Reboot extends JavaPlugin {
     public static ArrayList<Enchantment> custom_enchants = new ArrayList<>();
     public static CreeperHit creeperHitEnchantment;
     public static Jumpo jumpo;
+    public static Timber timber;
 
     @Override
     public void onEnable() {
@@ -47,6 +45,7 @@ public final class SMP_Reboot extends JavaPlugin {
 
         creeperHitEnchantment = new CreeperHit("creeperhit");
         jumpo = new Jumpo("jumpo");
+        timber = new Timber("timber");
 
         cfg = new ConfigManager();
 
@@ -57,6 +56,7 @@ public final class SMP_Reboot extends JavaPlugin {
         this.getCommand("setspawn").setExecutor(new AdminCommands());
         this.getCommand("spawnActive").setExecutor(new AdminCommands());
         this.getCommand("createWizard").setExecutor(new AdminCommands());
+        this.getCommand("customItems").setExecutor(new AdminCommands());
         this.getCommand("startSMP").setExecutor(new StartSMPCommand());
 
         //User Commands
@@ -73,13 +73,16 @@ public final class SMP_Reboot extends JavaPlugin {
         //Enchantments
         custom_enchants.add(creeperHitEnchantment);
         custom_enchants.add(jumpo);
+        custom_enchants.add(timber);
 
         registerEnchantment(creeperHitEnchantment);
         registerEnchantment(jumpo);
+        registerEnchantment(timber);
 
         //Enchantment Events
         pl.registerEvents(creeperHitEnchantment, this);
         pl.registerEvents(jumpo, this);
+        pl.registerEvents(timber, this);
 
 
     }

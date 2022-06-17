@@ -12,3 +12,4 @@ commands:
   setspawn:
   spawnActive:
   createWizard:
+  customItems:

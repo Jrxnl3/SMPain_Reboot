@@ -1,5 +1,6 @@
 package de.jinx.smp_reborn.npcs;
 
+import de.jinx.smp_reborn.items.ShopItems;
 import de.jinx.smp_reborn.items.Souls;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -21,8 +22,8 @@ public class NPC_GUIHandler implements Listener {
         if (!canUse(e))
             return;
 
-
-        if (e.getCurrentItem().isSimilar(Souls.evilSpiritBuy)) {
+        //EVIL SPIRIT
+        if (e.getCurrentItem().isSimilar(ShopItems.evilSpiritBuy)) {
                 //TODO Buy Mechanism
                 int[] slots = new int[4];
                 slots[0] = getSlotOfItem(p,Souls.peacefulSoul,2);
@@ -43,10 +44,22 @@ public class NPC_GUIHandler implements Listener {
                     p.getInventory().setItem(slot, item);
                 }
 
-                if(hasAvaliableSlot(p))
-                    p.getInventory().addItem(Souls.evilSpirit);
-                else
-                    p.getWorld().dropItemNaturally(p.getLocation(),Souls.evilSpirit);
+            givePlayerItem(p,Souls.evilSpirit);
+
+        }else if(e.getCurrentItem().isSimilar(ShopItems.timberAxeBuy)){
+            if(p.getInventory().contains(Souls.evilSpirit,2)){
+                int count = 0;
+                for (ItemStack item: p.getInventory().getContents()) {
+                    if(item != null && item.isSimilar(Souls.evilSpirit)) {
+                        item.setAmount(item.getAmount() - 1);
+                        count++;
+                        if(count >= 2)
+                            break;
+                    }
+                }
+                givePlayerItem(p,Souls.timberAxe);
+
+            }
         }
         e.setCancelled(true);
     }
@@ -69,8 +82,9 @@ public class NPC_GUIHandler implements Listener {
 
     public boolean hasAvaliableSlot(Player player) {
         Inventory inv = player.getInventory();
-        for (ItemStack item : inv.getContents()) {
+        for (ItemStack item : inv.getStorageContents()) {
             if (item == null) {
+                System.out.println("Got Space!");
                 return true;
             }
         }
@@ -88,5 +102,12 @@ public class NPC_GUIHandler implements Listener {
             i++;
         }
         return -1;
+    }
+
+    public void givePlayerItem(Player p, ItemStack item){
+        if(hasAvaliableSlot(p))
+            p.getInventory().addItem(item);
+        else
+            p.getWorld().dropItem(p.getLocation(),item);
     }
 }

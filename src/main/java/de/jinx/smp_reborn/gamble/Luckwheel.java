@@ -19,17 +19,21 @@ public class Luckwheel {
             new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
             new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
             new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
-            new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
             new ItemBuilder(Material.DEAD_BUSH).setName("§cNothing than just Trash").setLore("F").build(),
             new ItemBuilder(Material.DEAD_BUSH).setName("§cNothing than just Trash").setLore("F").build(),
-            new ItemBuilder(Material.ACACIA_BOAT).setName("§bBoat").setLore("Whats special about a damn Boat???").build(),
+            Souls.fireSoul,
+            Souls.waterSoul,
+            Souls.peacefulSoul,
+            Souls.undeadSoul,
+            new ItemBuilder(Material.ACACIA_BOAT).setName("§bBoat").setLore("What's special about a damn Boat???").build(),
+            new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(1).build(),
             new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(2).build(),
-            new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(2).build(),
-            new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(2).build(),
+            new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(3).build(),
             new ItemBuilder(Material.SEA_PICKLE).setAmount(5).setName("§4§lForbidden §aPickle").setLore("It just travel 500.000 Blocks, ok!?").build(),
             new ItemBuilder(Material.SEA_PICKLE).setAmount(5).setName("§4§lForbidden §aPickle").setLore("It just travel 500.000 Blocks, ok!?").build(),
             new ItemBuilder(Material.NETHERITE_SCRAP).setName("§6§lShiny Thingy").setLore("Can be used to make Netherrite!").build(),
-            Souls.creeperSword
+            Souls.creeperSword,
+            Souls.timberAxe
             ));
 
     public static String TITLE = "§bLuckWheel";

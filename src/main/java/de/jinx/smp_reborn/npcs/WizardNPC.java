@@ -1,5 +1,6 @@
 package de.jinx.smp_reborn.npcs;
 
+import de.jinx.smp_reborn.items.ShopItems;
 import de.jinx.smp_reborn.items.Souls;
 import de.jinx.smp_reborn.util.ItemBuilder;
 import org.bukkit.Bukkit;
@@ -25,7 +26,8 @@ public class WizardNPC {
         }
 
         //Evil Spirit
-        inv.setItem(13,Souls.evilSpiritBuy);
+        inv.setItem(14, ShopItems.evilSpiritBuy);
+        inv.setItem(12,ShopItems.timberAxeBuy);
 
         player.openInventory(inv);
     }

@@ -1,4 +1,4 @@
-package de.jinx.smp_reborn.items;
+package de.jinx.smp_reborn.items.Entchantments;
 
 import de.jinx.smp_reborn.SMP_Reboot;
 import org.bukkit.Material;

@@ -1,6 +1,7 @@
 package de.jinx.smp_reborn.events;
 
 import de.jinx.smp_reborn.items.Souls;
+import de.jinx.smp_reborn.util.Chance;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,8 +12,6 @@ import java.util.Arrays;
 
 public class SoulsDropListeners implements Listener {
 
-    int chance = 5;
-
     //TODO: May be uncomplete
     ArrayList<EntityType> undeadList = new ArrayList<>(Arrays.asList(EntityType.ZOMBIE,EntityType.SKELETON,EntityType.CREEPER,EntityType.ZOMBIE_VILLAGER,EntityType.SLIME,EntityType.DROWNED));
     ArrayList<EntityType> peacefulList = new ArrayList<>(Arrays.asList(EntityType.COW,EntityType.PIG,EntityType.CHICKEN,EntityType.FOX,EntityType.SHEEP));
@@ -22,7 +21,7 @@ public class SoulsDropListeners implements Listener {
     @EventHandler
     public void onUndeadDeaths(EntityDeathEvent e){
         if(undeadList.contains(e.getEntity().getType())) {
-            if (hitChance()) {
+            if (Chance.hitChance(5)) {
                 e.getDrops().add(Souls.undeadSoul);
             }
         }
@@ -31,7 +30,7 @@ public class SoulsDropListeners implements Listener {
     @EventHandler
     public void onPeacefulDeaths(EntityDeathEvent e){
         if(peacefulList.contains(e.getEntity().getType())) {
-            if (hitChance()) {
+            if (Chance.hitChance(5)) {
                 e.getDrops().add(Souls.peacefulSoul);
             }
         }
@@ -40,7 +39,7 @@ public class SoulsDropListeners implements Listener {
     @EventHandler
     public void onWaterDeaths(EntityDeathEvent e){
         if(waterList.contains(e.getEntity().getType())) {
-            if (hitChance()) {
+            if (Chance.hitChance(5)) {
                 e.getDrops().add(Souls.waterSoul);
             }
         }
@@ -49,15 +48,9 @@ public class SoulsDropListeners implements Listener {
     @EventHandler
     public void onFireDeaths(EntityDeathEvent e){
         if(fireList.contains(e.getEntity().getType())) {
-            if (hitChance()) {
+            if (Chance.hitChance(5)) {
                 e.getDrops().add(Souls.fireSoul);
             }
         }
-    }
-
-    //TODO: Change Chance! + maybe Chance in Parameters
-    public boolean hitChance(){
-        int random = (int)(Math.random() * 100 + 1);
-        return random < chance;
     }
 }
