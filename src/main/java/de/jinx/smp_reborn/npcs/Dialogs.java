@@ -17,5 +17,6 @@ public class Dialogs {
             "And cool community stuff also :D",
             "What about something like §6§lsynthetic Leather?\n",
             "But first, use Evil Spritis to Gamble. Use /luckwheel with a Evil Spirit in your Hand!",
+            "Btw take this! (As a sneak peak ;) )",
             "§a§lSee you someday! :)"));
 }

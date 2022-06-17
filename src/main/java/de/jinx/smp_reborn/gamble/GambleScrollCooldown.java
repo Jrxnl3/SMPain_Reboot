@@ -4,6 +4,7 @@ import de.jinx.smp_reborn.SMP_Reboot;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +13,7 @@ public class GambleScrollCooldown {
     public static ArrayList<GamblePlayer> gamblingPlayers = new ArrayList<>();
 
     public static void ScrollActive(){
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(SMP_Reboot.getPlugin(), new Runnable() {
+        new BukkitRunnable() {
             @Override
             public void run() {
                 try {
@@ -48,9 +49,12 @@ public class GambleScrollCooldown {
                                 gamblingPlayers.remove(gbp);
                             }
                         }
+                    } else {
+                        cancel();
+                        System.out.println("Stopped Gamble!");
                     }
                 }catch (Exception ignored){}
             }
-        },0L,20L);
+        }.runTaskTimer(SMP_Reboot.getPlugin(),0L,15L).getTaskId();
     }
 }

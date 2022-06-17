@@ -1,5 +1,6 @@
 package de.jinx.smp_reborn.gamble;
 
+import de.jinx.smp_reborn.items.Souls;
 import de.jinx.smp_reborn.util.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -27,7 +28,8 @@ public class Luckwheel {
             new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(2).build(),
             new ItemBuilder(Material.SEA_PICKLE).setAmount(5).setName("§4§lForbidden §aPickle").setLore("It just travel 500.000 Blocks, ok!?").build(),
             new ItemBuilder(Material.SEA_PICKLE).setAmount(5).setName("§4§lForbidden §aPickle").setLore("It just travel 500.000 Blocks, ok!?").build(),
-            new ItemBuilder(Material.NETHERITE_SCRAP).setName("§6§lShiny Thingy").setLore("Can be used to make Netherrite!").build()
+            new ItemBuilder(Material.NETHERITE_SCRAP).setName("§6§lShiny Thingy").setLore("Can be used to make Netherrite!").build(),
+            Souls.creeperSword
             ));
 
     public static String TITLE = "§bLuckWheel";

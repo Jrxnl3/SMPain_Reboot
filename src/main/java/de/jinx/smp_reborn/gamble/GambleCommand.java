@@ -40,6 +40,10 @@ public class GambleCommand implements CommandExecutor {
 
                     GamblePlayer gp = new GamblePlayer(p.getUniqueId(), luckItems, rdmSpinCounter, invView);
                     GambleScrollCooldown.gamblingPlayers.add(gp);
+
+                    if(!Bukkit.getScheduler().isCurrentlyRunning(SMP_Reboot.getGambleSchedularID())){
+                        GambleScrollCooldown.ScrollActive();
+                    }
                 } else p.sendMessage(SMP_Reboot.PREFIX +"You need one Evil Spirit!");
             }
         }

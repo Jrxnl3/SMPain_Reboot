@@ -52,7 +52,7 @@ public class GamblePlayer {
         }else {
             p.getInventory().addItem(wonItem);
         }
-        p.sendMessage(SMP_Reboot.PREFIX+"§aYou won: " +wonItem.getItemMeta().getDisplayName()+"§a! :D");
+        Bukkit.broadcastMessage(SMP_Reboot.PREFIX+"§a"+p.getName()+" won: " +wonItem.getItemMeta().getDisplayName()+"§a! :D");
 
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_IRON_XYLOPHONE,10,2);
     }

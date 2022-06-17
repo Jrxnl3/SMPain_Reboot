@@ -1,6 +1,7 @@
 package de.jinx.smp_reborn.events;
 
 import de.jinx.smp_reborn.SMP_Reboot;
+import de.jinx.smp_reborn.items.Souls;
 import de.jinx.smp_reborn.scoreboard.ScoreboardHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

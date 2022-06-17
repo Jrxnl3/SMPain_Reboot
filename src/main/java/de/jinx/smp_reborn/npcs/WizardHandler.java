@@ -1,5 +1,6 @@
 package de.jinx.smp_reborn.npcs;
 
+import de.jinx.smp_reborn.items.Souls;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,6 +32,7 @@ public class WizardHandler implements Listener {
                 for (int i = 0; i < Dialogs.wizardDialog.size(); i++) {
                     e.getPlayer().sendMessage(WizardNPC.PREFIX + Dialogs.wizardDialog.get(i));
                 }
+                e.getPlayer().getInventory().addItem(Souls.jumpFeather);
             }
 
             e.setCancelled(true);
