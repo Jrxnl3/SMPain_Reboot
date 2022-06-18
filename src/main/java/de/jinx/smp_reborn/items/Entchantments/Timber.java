@@ -1,10 +1,13 @@
 package de.jinx.smp_reborn.items.Entchantments;
 
 import de.jinx.smp_reborn.SMP_Reboot;
+import de.jinx.smp_reborn.items.ItemCategorys;
 import de.jinx.smp_reborn.util.Chance;
 import de.jinx.smp_reborn.util.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.LivingEntity;
@@ -25,29 +28,23 @@ public class Timber extends Enchantment implements Listener {
         super(new NamespacedKey(SMP_Reboot.getPlugin(), namespace));
     }
 
-    ArrayList<Material> blocks = new ArrayList<>(Arrays.asList(
-            Material.ACACIA_LOG,
-            Material.BIRCH_LOG,
-            Material.OAK_LOG,
-            Material.DARK_OAK_LOG,
-            Material.JUNGLE_LOG,
-            Material.MANGROVE_LOG,
-            Material.SPRUCE_LOG));
-
     //Define what happens for the enchant
     @EventHandler
-    public void onPlayerHit(BlockBreakEvent e){
+    public void onWoodBreak(BlockBreakEvent e){
         //Check to see if a player hurt another entity
             Player player = e.getPlayer();
 
             ItemStack item = player.getInventory().getItemInMainHand();
 
             if (item.getEnchantments().containsKey(Enchantment.getByKey(SMP_Reboot.timber.getKey()))){
-                if(blocks.contains(e.getBlock().getType())) {
+                if(ItemCategorys.woodBlocks.contains(e.getBlock().getType())) {
 
                     if(Chance.hitChance(25)) {
                         ItemStack clonedBlock = new ItemBuilder(e.getBlock().getType()).build();
                         e.getBlock().getWorld().dropItemNaturally(e.getBlock().getLocation(),clonedBlock);
+
+                        player.getWorld().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_SNARE,2f,1f);
+                        player.getWorld().spawnParticle(Particle.CRIT,e.getBlock().getLocation(),5,0.2d,0,0.2d);
                     }
                 }
         }

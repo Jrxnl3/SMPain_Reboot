@@ -1,6 +1,7 @@
 package de.jinx.smp_reborn.items.Entchantments;
 
 import de.jinx.smp_reborn.SMP_Reboot;
+import de.jinx.smp_reborn.util.Chance;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
@@ -21,7 +22,7 @@ public class CreeperHit extends Enchantment implements Listener {
 
     //Define what happens for the enchant
     @EventHandler
-    public void onPlayerHit(EntityDamageByEntityEvent e){
+    public void onPlayerHitMob(EntityDamageByEntityEvent e){
         //Check to see if a player hurt another entity
         if (e.getDamager() instanceof Player){
             Player player = ((Player) e.getDamager()).getPlayer();
@@ -30,9 +31,11 @@ public class CreeperHit extends Enchantment implements Listener {
             ItemStack item = player.getInventory().getItemInMainHand();
 
             if (item.getEnchantments().containsKey(Enchantment.getByKey(SMP_Reboot.creeperHitEnchantment.getKey()))){
-                LivingEntity victim = (LivingEntity) e.getEntity();
+                if(Chance.hitChance(30)) {
+                    LivingEntity victim = (LivingEntity) e.getEntity();
 
-                victim.getLocation().getWorld().createExplosion(victim.getLocation(),1f,false,false);
+                    victim.getLocation().getWorld().createExplosion(victim.getLocation(), (float) Chance.rdmNr(0.2,0.7d), false, false);
+                }
             }
 
         }

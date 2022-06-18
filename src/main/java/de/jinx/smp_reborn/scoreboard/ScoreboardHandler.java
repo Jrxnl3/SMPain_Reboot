@@ -19,7 +19,7 @@ public class ScoreboardHandler {
         obj.getScore("§asmpain.de").setScore(6);
         obj.getScore(" ").setScore(5);
         obj.getScore("§6§lObjective").setScore(4);
-        obj.getScore("§aGather §4§lEvil Spirits").setScore(3);
+        obj.getScore("§4§lGamble ;)").setScore(3);
         obj.getScore("  ").setScore(2);
         obj.getScore("§d§lDiscord:").setScore(1);
         obj.getScore("§adiscord.gg/wUUKbk7eaz").setScore(0);

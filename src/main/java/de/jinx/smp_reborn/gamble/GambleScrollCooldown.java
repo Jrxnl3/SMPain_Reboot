@@ -51,10 +51,9 @@ public class GambleScrollCooldown {
                         }
                     } else {
                         cancel();
-                        System.out.println("Stopped Gamble!");
                     }
                 }catch (Exception ignored){}
             }
-        }.runTaskTimer(SMP_Reboot.getPlugin(),0L,15L).getTaskId();
+        }.runTaskTimer(SMP_Reboot.getPlugin(),0L,17L).getTaskId();
     }
 }

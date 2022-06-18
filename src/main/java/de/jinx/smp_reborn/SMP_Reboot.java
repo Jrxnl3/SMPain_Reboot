@@ -1,7 +1,6 @@
 package de.jinx.smp_reborn;
 
 import de.jinx.smp_reborn.commands.AdminCommands;
-import de.jinx.smp_reborn.commands.StartSMPCommand;
 import de.jinx.smp_reborn.config.ConfigManager;
 import de.jinx.smp_reborn.events.SMP_Listeners;
 import de.jinx.smp_reborn.events.SoulsDropListeners;
@@ -9,6 +8,7 @@ import de.jinx.smp_reborn.gamble.GambleCommand;
 import de.jinx.smp_reborn.gamble.LuckwheelHandler;
 import de.jinx.smp_reborn.items.Entchantments.CreeperHit;
 import de.jinx.smp_reborn.items.Entchantments.Jumpo;
+import de.jinx.smp_reborn.items.Entchantments.Loggers;
 import de.jinx.smp_reborn.items.Entchantments.Timber;
 import de.jinx.smp_reborn.npcs.NPC_GUIHandler;
 import de.jinx.smp_reborn.npcs.WizardHandler;
@@ -32,10 +32,12 @@ public final class SMP_Reboot extends JavaPlugin {
 
     private static int gambleSchedularID;
 
+    //ENCHANTMENTS
     public static ArrayList<Enchantment> custom_enchants = new ArrayList<>();
     public static CreeperHit creeperHitEnchantment;
     public static Jumpo jumpo;
     public static Timber timber;
+    public static Loggers loggers;
 
     @Override
     public void onEnable() {
@@ -46,6 +48,7 @@ public final class SMP_Reboot extends JavaPlugin {
         creeperHitEnchantment = new CreeperHit("creeperhit");
         jumpo = new Jumpo("jumpo");
         timber = new Timber("timber");
+        loggers = new Loggers("loggers");
 
         cfg = new ConfigManager();
 
@@ -57,7 +60,6 @@ public final class SMP_Reboot extends JavaPlugin {
         this.getCommand("spawnActive").setExecutor(new AdminCommands());
         this.getCommand("createWizard").setExecutor(new AdminCommands());
         this.getCommand("customItems").setExecutor(new AdminCommands());
-        this.getCommand("startSMP").setExecutor(new StartSMPCommand());
 
         //User Commands
         this.getCommand("luckwheel").setExecutor(new GambleCommand());
@@ -74,15 +76,18 @@ public final class SMP_Reboot extends JavaPlugin {
         custom_enchants.add(creeperHitEnchantment);
         custom_enchants.add(jumpo);
         custom_enchants.add(timber);
+        custom_enchants.add(loggers);
 
         registerEnchantment(creeperHitEnchantment);
         registerEnchantment(jumpo);
         registerEnchantment(timber);
+        registerEnchantment(loggers);
 
         //Enchantment Events
         pl.registerEvents(creeperHitEnchantment, this);
         pl.registerEvents(jumpo, this);
         pl.registerEvents(timber, this);
+        pl.registerEvents(loggers, this);
 
 
     }
@@ -102,7 +107,6 @@ public final class SMP_Reboot extends JavaPlugin {
                 byKey.remove(enchantment.getKey());
             }
 
-            //TODO: Needed?
             Field nameField = Enchantment.class.getDeclaredField("byName");
 
             nameField.setAccessible(true);

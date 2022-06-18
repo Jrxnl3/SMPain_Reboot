@@ -30,6 +30,7 @@ public class ItemBuilder {
         itemMeta.addEnchant(enchantment, enchantmentStärke, useNormaleEnchtStufen);
         return this;
     }
+
     public ItemBuilder addItemFlag(ItemFlag flag) {
         itemMeta.addItemFlags(flag);
         return this;

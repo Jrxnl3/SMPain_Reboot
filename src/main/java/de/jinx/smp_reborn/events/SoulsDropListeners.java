@@ -12,11 +12,17 @@ import java.util.Arrays;
 
 public class SoulsDropListeners implements Listener {
 
-    //TODO: May be uncomplete
-    ArrayList<EntityType> undeadList = new ArrayList<>(Arrays.asList(EntityType.ZOMBIE,EntityType.SKELETON,EntityType.CREEPER,EntityType.ZOMBIE_VILLAGER,EntityType.SLIME,EntityType.DROWNED));
-    ArrayList<EntityType> peacefulList = new ArrayList<>(Arrays.asList(EntityType.COW,EntityType.PIG,EntityType.CHICKEN,EntityType.FOX,EntityType.SHEEP));
-    ArrayList<EntityType> waterList = new ArrayList<>(Arrays.asList(EntityType.COD,EntityType.GLOW_SQUID,EntityType.SQUID,EntityType.SALMON,EntityType.GUARDIAN,EntityType.ELDER_GUARDIAN));
-    ArrayList<EntityType> fireList = new ArrayList<>(Arrays.asList(EntityType.BLAZE,EntityType.WITHER_SKELETON,EntityType.ZOMBIFIED_PIGLIN,EntityType.PIGLIN,EntityType.MAGMA_CUBE,EntityType.HOGLIN));
+    ArrayList<EntityType> undeadList = new ArrayList<>(Arrays.asList(EntityType.ZOMBIE,EntityType.SKELETON,EntityType.CREEPER,EntityType.ZOMBIE_VILLAGER,EntityType.DROWNED
+            ,EntityType.HUSK,EntityType.PHANTOM,EntityType.STRAY,EntityType.WITHER,EntityType.ZOGLIN));
+
+    ArrayList<EntityType> peacefulList = new ArrayList<>(Arrays.asList(EntityType.COW,EntityType.PIG,EntityType.CHICKEN,EntityType.FOX,EntityType.SHEEP
+            ,EntityType.MUSHROOM_COW,EntityType.RABBIT));
+
+    ArrayList<EntityType> waterList = new ArrayList<>(Arrays.asList(EntityType.COD,EntityType.GLOW_SQUID,EntityType.SQUID,EntityType.SALMON,EntityType.GUARDIAN,EntityType.ELDER_GUARDIAN,EntityType.DROWNED
+            ,EntityType.TURTLE,EntityType.DOLPHIN,EntityType.FROG,EntityType.PUFFERFISH,EntityType.TROPICAL_FISH));
+
+    ArrayList<EntityType> fireList = new ArrayList<>(Arrays.asList(EntityType.BLAZE,EntityType.WITHER_SKELETON,EntityType.ZOMBIFIED_PIGLIN,EntityType.PIGLIN,EntityType.MAGMA_CUBE,EntityType.HOGLIN
+            ,EntityType.GHAST,EntityType.PIGLIN_BRUTE));
 
     @EventHandler
     public void onUndeadDeaths(EntityDeathEvent e){

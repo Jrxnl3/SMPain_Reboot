@@ -21,7 +21,7 @@ public class Jumpo extends Enchantment implements Listener {
     }
 
     @EventHandler
-    public void onPlayerHit(PlayerInteractEvent e){
+    public void onFeatherUse(PlayerInteractEvent e){
         //Check to see if a player hurt another entity
             Player player = e.getPlayer();
 

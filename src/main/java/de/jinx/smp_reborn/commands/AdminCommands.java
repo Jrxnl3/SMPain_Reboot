@@ -49,6 +49,7 @@ public class AdminCommands implements CommandExecutor {
                 player.getInventory().addItem(Souls.creeperSword);
                 player.getInventory().addItem(Souls.jumpFeather);
                 player.getInventory().addItem(Souls.timberAxe);
+                player.getInventory().addItem(Souls.loggerAxe);
             }
         }
         return false;

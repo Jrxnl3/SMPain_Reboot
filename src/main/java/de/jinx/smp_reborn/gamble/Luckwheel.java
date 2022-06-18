@@ -4,37 +4,15 @@ import de.jinx.smp_reborn.items.Souls;
 import de.jinx.smp_reborn.util.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
 public class Luckwheel {
 
-    static ArrayList<ItemStack> winnableItems = new ArrayList<>(Arrays.asList(
-            new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
-            new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
-            new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
-            new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
-            new ItemBuilder(Material.DEAD_BUSH).setName("§cNothing than just Trash").setLore("F").build(),
-            new ItemBuilder(Material.DEAD_BUSH).setName("§cNothing than just Trash").setLore("F").build(),
-            Souls.fireSoul,
-            Souls.waterSoul,
-            Souls.peacefulSoul,
-            Souls.undeadSoul,
-            new ItemBuilder(Material.ACACIA_BOAT).setName("§bBoat").setLore("What's special about a damn Boat???").build(),
-            new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(1).build(),
-            new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(2).build(),
-            new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(3).build(),
-            new ItemBuilder(Material.SEA_PICKLE).setAmount(5).setName("§4§lForbidden §aPickle").setLore("It just travel 500.000 Blocks, ok!?").build(),
-            new ItemBuilder(Material.SEA_PICKLE).setAmount(5).setName("§4§lForbidden §aPickle").setLore("It just travel 500.000 Blocks, ok!?").build(),
-            new ItemBuilder(Material.NETHERITE_SCRAP).setName("§6§lShiny Thingy").setLore("Can be used to make Netherrite!").build(),
-            Souls.creeperSword,
-            Souls.timberAxe
-            ));
+    static ArrayList<ItemStack> winnableItems = createLuckArray();
 
     public static String TITLE = "§bLuckWheel";
 
@@ -64,5 +42,39 @@ public class Luckwheel {
         inv.setItem(22, new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE).setName(" ").build());
 
         return inv;
+    }
+
+    public static ArrayList<ItemStack>createLuckArray() {
+        ArrayList<ItemStack> itemsToWin = new ArrayList<>(Arrays.asList(
+                new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
+                new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
+                new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
+                new ItemBuilder(Material.PAPER).setName("§cNothing").setLore(":,(").build(),
+                new ItemBuilder(Material.DEAD_BUSH).setName("§cNothing than just Trash").setLore("F").build(),
+                new ItemBuilder(Material.DEAD_BUSH).setName("§cNothing than just Trash").setLore("F").build(),
+                new ItemBuilder(Material.ACACIA_BOAT).setName("§bBoat").setLore("What's special about a damn Boat???").build(),
+                new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(1).build(),
+                new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(2).build(),
+                new ItemBuilder(Material.DIAMOND).setName("§bDiamond").setLore("Lucky...").setAmount(3).build(),
+                new ItemBuilder(Material.SEA_PICKLE).setAmount(5).setName("§4§lForbidden §aPickle").setLore("It just travel 500.000 Blocks, ok!?").build(),
+                new ItemBuilder(Material.SEA_PICKLE).setAmount(5).setName("§4§lForbidden §aPickle").setLore("It just travel 500.000 Blocks, ok!?").build(),
+                new ItemBuilder(Material.NETHERITE_SCRAP).setName("§6§lShiny Thingy").setLore("Can be used to make Netherrite!").build(),
+                Souls.creeperSword,
+                Souls.timberAxe,
+                Souls.loggerAxe
+        ));
+
+        ArrayList<ItemStack> allSouls = new ArrayList<>(Arrays.asList(Souls.waterSoul.clone(),
+                Souls.fireSoul.clone(),
+                Souls.peacefulSoul.clone(),
+                Souls.undeadSoul.clone()
+        ));
+
+        for (ItemStack item : allSouls) {
+            item.setAmount(5);
+            itemsToWin.add(item);
+        }
+
+        return itemsToWin;
     }
 }

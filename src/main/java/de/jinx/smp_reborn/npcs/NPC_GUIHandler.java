@@ -24,7 +24,6 @@ public class NPC_GUIHandler implements Listener {
 
         //EVIL SPIRIT
         if (e.getCurrentItem().isSimilar(ShopItems.evilSpiritBuy)) {
-                //TODO Buy Mechanism
                 int[] slots = new int[4];
                 slots[0] = getSlotOfItem(p,Souls.peacefulSoul,2);
                 slots[1] = getSlotOfItem(p,Souls.fireSoul,2);
