@@ -10,6 +10,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class AdminCommands implements CommandExecutor {
@@ -50,6 +51,16 @@ public class AdminCommands implements CommandExecutor {
                 player.getInventory().addItem(Souls.jumpFeather);
                 player.getInventory().addItem(Souls.timberAxe);
                 player.getInventory().addItem(Souls.loggerAxe);
+            }else if(label.equalsIgnoreCase("souls")){
+                player.getInventory().addItem(Souls.waterSoul);
+                player.getInventory().addItem(Souls.fireSoul);
+                player.getInventory().addItem(Souls.undeadSoul);
+                player.getInventory().addItem(Souls.peacefulSoul);
+                player.getInventory().addItem(Souls.raikoSoul);
+                player.getInventory().addItem(Souls.witchSoul);
+            }else if(label.equalsIgnoreCase("printInfo")){
+                ItemStack item = player.getInventory().getItemInMainHand();
+                player.sendMessage(item.getEnchantments().toString());
             }
         }
         return false;

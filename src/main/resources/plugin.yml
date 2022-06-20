@@ -7,9 +7,8 @@ commands:
   broadcast:
   rename:
   testString:
-  startsmp:
   luckwheel:
-  setspawn:
-  spawnActive:
   createWizard:
   customItems:
+  souls:
+  printInfo:

@@ -1,7 +1,7 @@
 package de.jinx.smp_reborn.items.Entchantments;
 
 import de.jinx.smp_reborn.SMP_Reboot;
-import de.jinx.smp_reborn.items.ItemCategorys;
+import de.jinx.smp_reborn.items.ItemMobList;
 import de.jinx.smp_reborn.util.Chance;
 import org.bukkit.Effect;
 import org.bukkit.NamespacedKey;
@@ -30,7 +30,7 @@ public class Loggers extends Enchantment implements Listener {
         ItemStack item = player.getInventory().getItemInMainHand();
 
         if (item.getEnchantments().containsKey(Enchantment.getByKey(SMP_Reboot.loggers.getKey()))){
-            if(ItemCategorys.woodBlocks.contains(e.getBlock().getType())) {
+            if(ItemMobList.woodBlocks.contains(e.getBlock().getType())) {
 
                 if(Chance.hitChance(18)) {
                     ExperienceOrb orb = player.getWorld().spawn(e.getBlock().getLocation(), ExperienceOrb.class);

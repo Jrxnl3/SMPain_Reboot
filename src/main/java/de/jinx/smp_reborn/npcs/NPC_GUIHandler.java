@@ -39,7 +39,7 @@ public class NPC_GUIHandler implements Listener {
 
                 for (int slot : slots) {
                     ItemStack item = p.getInventory().getItem(slot);
-                    item.setAmount(item.getAmount() - 5);
+                    item.setAmount(item.getAmount() - 2);
                     p.getInventory().setItem(slot, item);
                 }
 

@@ -1,7 +1,7 @@
 package de.jinx.smp_reborn.items.Entchantments;
 
 import de.jinx.smp_reborn.SMP_Reboot;
-import de.jinx.smp_reborn.items.ItemCategorys;
+import de.jinx.smp_reborn.items.ItemMobList;
 import de.jinx.smp_reborn.util.Chance;
 import de.jinx.smp_reborn.util.ItemBuilder;
 import org.bukkit.Material;
@@ -37,9 +37,10 @@ public class Timber extends Enchantment implements Listener {
             ItemStack item = player.getInventory().getItemInMainHand();
 
             if (item.getEnchantments().containsKey(Enchantment.getByKey(SMP_Reboot.timber.getKey()))){
-                if(ItemCategorys.woodBlocks.contains(e.getBlock().getType())) {
+                if(ItemMobList.woodBlocks.contains(e.getBlock().getType())) {
 
                     if(Chance.hitChance(25)) {
+                        System.out.println("Hit");
                         ItemStack clonedBlock = new ItemBuilder(e.getBlock().getType()).build();
                         e.getBlock().getWorld().dropItemNaturally(e.getBlock().getLocation(),clonedBlock);
 

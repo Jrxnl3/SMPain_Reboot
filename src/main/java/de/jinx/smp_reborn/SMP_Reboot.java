@@ -56,10 +56,10 @@ public final class SMP_Reboot extends JavaPlugin {
         this.getCommand("broadcast").setExecutor(new AdminCommands());
         this.getCommand("rename").setExecutor(new AdminCommands());
         this.getCommand("testString").setExecutor(new AdminCommands());
-        this.getCommand("setspawn").setExecutor(new AdminCommands());
-        this.getCommand("spawnActive").setExecutor(new AdminCommands());
         this.getCommand("createWizard").setExecutor(new AdminCommands());
         this.getCommand("customItems").setExecutor(new AdminCommands());
+        this.getCommand("souls").setExecutor(new AdminCommands());
+        this.getCommand("printInfo").setExecutor(new AdminCommands());
 
         //User Commands
         this.getCommand("luckwheel").setExecutor(new GambleCommand());
